@@ -1,4 +1,16 @@
+pipeline {
 
+    agent any
+/*
+	tools {
+        maven "maven3"
+    }
+*/
+    environment {
+       registry = "bdino2005/dinoappdoker"
+       registryCredential = "dockerhub1"
+        ARTVERSION = "${env.BUILD_ID}"
+    }
 
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
